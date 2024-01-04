@@ -27,12 +27,15 @@ import {
   LabelOutlined,
 } from "@mui/icons-material";
 
+import { red } from "@mui/material/colors";
+
 import Loading from "../Loading";
 
 export default function UserDetail() {
   let { id } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     axios
@@ -41,8 +44,9 @@ export default function UserDetail() {
         setUser(response.data);
         setLoading(false);
       })
-      .catch(() => {
+      .catch((error) => {
         setLoading(false);
+        setError(error);
       });
   }, [id]);
 
@@ -71,6 +75,8 @@ export default function UserDetail() {
   );
 
   if (loading) return <Loading />;
+  if (error)
+    return <Typography color={red[500]}>Error: {error.message}</Typography>;
 
   return (
     <>
