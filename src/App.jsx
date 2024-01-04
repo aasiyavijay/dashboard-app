@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -13,7 +13,7 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <BasicAppBar />
       <Box
         component="main"
@@ -32,7 +32,7 @@ function App() {
           </Routes>
         </Container>
       </Box>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

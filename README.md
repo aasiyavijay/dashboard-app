@@ -8,3 +8,7 @@ Install it and run:
 npm install
 npm run dev
 ```
+
+## Live site
+https://aasiyavijay.github.io/dashboard-app/
+
